@@ -1,0 +1,138 @@
+@charset "ISO-8859-1";
+body
+{
+	margin:0;
+	font-family:"Poppins";
+	color:#ddfdfd;
+	background:#050808;
+}
+.profile-picture 
+{
+margin-top:-30px;
+margin-left:250px;
+      width: 350px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+            
+      
+    }
+    .profile-picture:hover
+    {
+    background:#ff96ad;
+box-shadow:0 0 5px #ff96ad,0 0 25px #ff96ad,0 0 50px #ff96ad,0 0 200px #ff96ad;
+    
+    }
+.banner
+{
+	display:flex;
+	align-items:center;
+	justify-content:center;
+	flex-direction:column-reverse;
+	gap:50px;
+	padding:0 80px;
+	text-align:center;
+	height:100vh;
+	background:#050808;
+	
+}
+.banner >img
+{
+	width:15vw;
+	transition:0.1s linear;
+}
+.banner h2
+{
+	font-height:500px;
+	font-size:50px;
+	
+	margin: 0 0 10px;
+	
+}
+.banner p
+{
+	margin:0;
+	line-height:1.65;
+	opacity:0.8;
+	
+	
+}
+.waves > use:nth-child(2)
+{
+	animation-delay:-3s;
+	animation-duration:6s;
+}
+.waves >use:nth-child(3)
+{
+	animation-delay:-4s;
+	animation-duration:3s;
+	
+}
+.waves1 > use:nth-child(2)
+{
+	animation-delay:-4s;
+	animation-duration:7s;
+}
+.waves1 >use:nth-child(3)
+{
+	animation-delay:-4s;
+	animation-duration:3s;
+	
+}
+@keyframes move-forever
+{
+	0%
+	{
+	translate:-90px 0%;
+	}
+	100%
+	{
+	translate:85px 0%;
+	}
+}
+svg
+{
+	position:absolute;
+	left:0;
+	bottom:0;
+	width:100%;
+	height:30vw;
+	max-height:200px;
+}
+
+.waves >use
+{
+	animation:move-forever 2.5s -2s linear infinite;
+}
+.waves1 >use
+{
+	animation:move-forever 3s -2.5s linear infinite;
+}
+@media (width>=648px)
+{
+	.banner
+	{
+		text-align:left;
+		flex-direction:row;
+		justify-content:space-between;
+	}
+	.banner>tag
+	{
+	width:30vw;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

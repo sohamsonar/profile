@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<style>
+body
+{
+background-color:#FFF7EF;
+
+}
+.bg
+{
+position: absolute; 
+            height: 100%; 
+            width: 100%; 
+            
+            filter: blur(10px); 
+            z-index: -1;
+}
+nav {
+  text-align: center;
+  margin:0 auto;
+  padding :80%;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 110;
+  overflow: hidden;
+  background-color: none;
+   display: flex; /* Added */
+  justify-content: center; /* Added */
+}
+
+li {
+ display: inline-block; /* Added */
+  margin: 0 10px; /* Added */
+}
+li.le
+{
+float:right;
+font-family:Forte;
+display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  color:black;
+  border-radius:100px;
+  background-color:#DCDCDC;
+
+}
+
+li a {
+   display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  color:black;
+  
+}
+li a:hover {
+
+ transition-duration: 1.2s;
+  background-color:#DCDCDC;
+  border-radius:10px;
+}
+
+.intro
+{
+
+        display: flex;
+        align-items: center;
+        justify-content: center
+      
+}
+img
+{
+max-width:100%;
+margin:90px;
+border-radius:25px;
+}
+.txt
+{
+height:300px;
+font-size:20px;
+text-align:center;
+font-family:"Castellar";
+
+
+}
+.about
+{
+
+border-top:1px solid black;
+}
+.ls 
+{
+	margin-right:150px;
+}
+
+
+</style>
+<body>
+<div class="bg"></div>
+<header>
+<ul>
+  <li><a href="intro.html">Home</a></li>
+  <li><a href="#news">Resume</a></li>
+  <li><a href="#contact">Contact</a></li>
+  <li><a href="about_me.html">About</a></li>
+  <li class="le">SS</li>
+</ul>
+</header>
+<main>
+<hr style="height:1px; border-width:0; color:white; background-color:black;">
+<div class="intro">
+<div class="img">
+<img src="soham.png" height=500 width=380>
+</div>
+<div class="txt">
+
+<p style="font-size:50px; color:black;">Soham Sonar</p>
+<hr style="height:1px; border-width:0; color:black; background-color:black;">
+<p style="color:black;">We Re-imagine the way the world moves for the better</p>
+<br><br><br><br>
+<button class="ls" style="height:45px; width:95px; border-radius:10px; ">About Me</button>
+<button style="height:45px; width:95px; border-radius:10px; ">Contact Me</button>
+</div>
+<hr>
+
+</div>
+
+<div class="about">
+<center>
+<p style="font-size:50px; color:black; font-family:Helvetica Now Display">About <u>Soham!</u></p>
+</center>
+</div>
+
+<br>
+</main>
+
+<footer>
+<div class="foot">
+</div>
+
+</footer>
+</body>
+</html>
