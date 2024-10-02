@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loose Rate Chart</title>
+	<style>
+   * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            padding: 70px;
+            background-color: #FAF9F6;
+        }
+
+        .title {
+            text-align: center;
+            align-items: center;
+        }
+
+        .title h2 {
+            font-size: 35px;
+            margin: 20px;
+        }
+
+        .title p {
+            font-size: 24px;
+            opacity: 0.9;
+            margin: 20px;
+        }
+
+        /* Wrapping table in div for mobile scrolling */
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            margin-bottom: 50px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 800px; /* Ensure the table doesn't shrink too much */
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+
+        td {
+            font-size: 15px;
+            text-transform: uppercase;
+        }
+
+        th {
+            background-color: #E9DCC9;
+            font-size: 20px;
+            text-transform: uppercase;
+        }
+
+        td:hover {
+            background-color: #E5E4E2;
+        }
+
+        input {
+            height: 40px;
+        }
+
+        button {
+            margin-top: 9px;
+            padding: 5px;
+            font-size: 15px;
+            background-color: #C0C0C0;
+            transition: 2s;
+        }
+
+        /* Media query for mobile responsiveness */
+        @media screen and (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            .title h2 {
+                font-size: 28px;
+            }
+
+            .title p {
+                font-size: 18px;
+            }
+
+            table {
+                min-width: 600px;
+            }
+
+            th, td {
+                font-size: 16px;
+                padding: 6px;
+            }
+
+            button {
+                font-size: 13px;
+                padding: 4px;
+            }
+
+        }
+
+        /* For very small screens, like phones */
+        @media screen and (max-width: 480px) {
+            .title h2 {
+                font-size: 25px;
+            }
+
+            .title p {
+                font-size: 16px;
+            }
+
+            table {
+                min-width: 500px;
+            }
+
+            th, td {
+                font-size: 14px;
+                padding: 4px;
+            }
+
+            td {
+                font-size: 13px;
+            }
+
+            input {
+                height: 35px;
+            }
+
+            button {
+                font-size: 12px;
+                padding: 3px;
+            }
+        }
+
+        /* For very small mobile screens */
+        @media screen and (max-width: 320px) {
+            .title h2 {
+                font-size: 20px;
+            }
+
+            .title p {
+                font-size: 14px;
+            }
+
+            th, td {
+                font-size: 12px;
+            }
+
+            button {
+                font-size: 10px;
+                padding: 2px;
+            }
+
+            /* Reduce table width further */
+            table {
+                min-width: 400px;
+            }
+        }
+    </style>
+	<script>
+		function FF01()
+		{
+			var q=parseInt(document.getElementById("amt1").value);
+			var total=0;
+			if(q<1000)
+			{
+				total=3*q;
+				document.getElementById("price1").innerHTML = total;
+				document.getElementById("pp1").innerHTML ="₹ 3.00 per pad ";
+			}
+			else if(q<100000)
+			{
+				total=2.10*q;
+				document.getElementById("price1").innerHTML = total;
+				document.getElementById("pp1").innerHTML ="₹ 2.10 per pad ";
+			}
+			else if(q<500000)
+			{
+				total=2.05*q;
+				document.getElementById("price1").innerHTML = total;
+				document.getElementById("pp1").innerHTML ="₹ 2.05 per pad ";
+			}
+			else
+			{
+				total=2.00*q;
+				document.getElementById("price1").innerHTML = total;
+				document.getElementById("pp1").innerHTML ="₹ 2.00 per pad ";
+			}
+		}
+		function FA02()
+		{
+			var q=parseInt(document.getElementById("amt2").value);
+			var total=0;
+			if(q<1000)
+			{
+				total=3*q;
+				document.getElementById("price2").innerHTML = total;
+				document.getElementById("pp2").innerHTML ="₹ 3.00 per pad ";
+			}
+			else if(q<100000)
+			{
+				total=2.25*q;
+				document.getElementById("price2").innerHTML = total;
+				document.getElementById("pp2").innerHTML ="₹ 2.25 per pad ";
+			}
+			else if(q<500000)
+			{
+				total=2.20*q;
+				document.getElementById("price2").innerHTML = total;
+				document.getElementById("pp2").innerHTML ="₹ 2.20 per pad ";
+			}
+			else
+			{
+				total=2.15*q;
+				document.getElementById("price2").innerHTML = total;
+				document.getElementById("pp2").innerHTML ="₹ 2.15 per pad ";
+			}
+		}
+		
+		function FAI02()
+		{
+			var q=parseInt(document.getElementById("amt3").value);
+			var total=0;
+			if(q<1000)
+			{
+				total=4*q;
+				document.getElementById("price3").innerHTML = total;
+				document.getElementById("pp3").innerHTML ="₹ 4.00 per pad ";
+			}
+			else if(q<100000)
+			{
+				total=2.80*q;
+				document.getElementById("price3").innerHTML = total;
+				document.getElementById("pp3").innerHTML ="₹ 2.80.00 per pad ";
+			}
+			else if(q<500000)
+			{
+				total=2.75*q;
+				document.getElementById("price3").innerHTML = total;
+				document.getElementById("pp3").innerHTML ="₹ 2.75 per pad ";
+			}
+			else
+			{
+				total=2.70*q;
+				document.getElementById("price3").innerHTML = total;
+				document.getElementById("pp3").innerHTML ="₹ 2.70 per pad ";
+			}
+		}
+		function SA02()
+		{
+			var q=parseInt(document.getElementById("amt4").value);
+			var total=0;
+			if(q<1000)
+			{
+				total=3*q;
+				document.getElementById("price4").innerHTML = total;
+				document.getElementById("pp4").innerHTML ="₹ 3.00 per pad ";
+			}
+			else if(q<100000)
+			{
+				total=1.55*q;
+				document.getElementById("price4").innerHTML = total;
+				document.getElementById("pp4").innerHTML ="₹ 1.55 per pad ";
+			}
+			else if(q<500000)
+			{
+				total=1.50*q;
+				document.getElementById("price4").innerHTML = total;
+				document.getElementById("pp4").innerHTML ="₹ 1.50 per pad ";
+			}
+			else
+			{
+				total=1.45*q;
+				document.getElementById("price4").innerHTML = total;
+				document.getElementById("pp4").innerHTML ="₹ 1.45 per pad ";
+			}
+		}
+		function SA04()
+		{
+			var q=parseInt(document.getElementById("amt5").value);
+			var total=0;
+			if(q<1000)
+			{
+				total=3*q;
+				document.getElementById("price5").innerHTML = total;
+				document.getElementById("pp5").innerHTML ="₹ 3.00 per pad ";
+			}
+			else if(q<100000)
+			{
+				total=1.90*q;
+				document.getElementById("price5").innerHTML = total;
+				document.getElementById("pp5").innerHTML ="₹ 1.90 per pad ";
+			}
+			else if(q<500000)
+			{
+				total=1.85*q;
+				document.getElementById("price5").innerHTML = total;
+				document.getElementById("pp5").innerHTML ="₹ 1.85 per pad ";
+			}
+			else
+			{
+				total=1.80*q;
+				document.getElementById("price5").innerHTML = total;
+				document.getElementById("pp5").innerHTML ="₹ 1.80 per pad ";
+			}
+		}
+		function SDF05()
+		{
+			var q=parseInt(document.getElementById("amt6").value);
+			var total=0;
+			if(q<1000)
+			{
+				total=3*q;
+				document.getElementById("price6").innerHTML = total;
+				document.getElementById("pp6").innerHTML ="₹ 3.00 per pad ";
+			}
+			else if(q<100000)
+			{
+				total=1.70*q;
+				document.getElementById("price6").innerHTML = total;
+				document.getElementById("pp6").innerHTML ="₹ 1.70 per pad ";
+			}
+			else if(q<500000)
+			{
+				total=1.65*q;
+				document.getElementById("price6").innerHTML = total;
+				document.getElementById("pp6").innerHTML ="₹ 1.65 per pad ";
+			}
+			else
+			{
+				total=1.60*q;
+				document.getElementById("price6").innerHTML = total;
+				document.getElementById("pp6").innerHTML ="₹ 1.60 per pad ";
+			}
+		}
+		function FDF06()
+		{
+			var q=parseInt(document.getElementById("amt7").value);
+			var total=0;
+			if(q<1000)
+			{
+				total=3*q;
+				document.getElementById("price7").innerHTML = total;
+				document.getElementById("pp7").innerHTML ="₹ 3.00 per pad ";
+			}
+			else if(q<100000)
+			{
+				total=2.05*q;
+				document.getElementById("price7").innerHTML = total;
+				document.getElementById("pp7").innerHTML ="₹ 2.05 per pad ";
+			}
+			else if(q<500000)
+			{
+				total=2.00*q;
+				document.getElementById("price7").innerHTML = total;
+				document.getElementById("pp7").innerHTML ="₹ 2.00 per pad ";
+			}
+			else
+			{
+				total=1.95*q;
+				document.getElementById("price7").innerHTML = total;
+				document.getElementById("pp7").innerHTML ="₹ 1.95 per pad ";
+			}
+		}
+		function FF07()
+		{
+			var q=parseInt(document.getElementById("amt8").value);
+			var total=0;
+			if(q<1000)
+			{
+				total=4*q;
+				document.getElementById("price8").innerHTML = total;
+				document.getElementById("pp8").innerHTML ="₹ 4.00 per pad ";
+			}
+			else if(q<100000)
+			{
+				total=2.35*q;
+				document.getElementById("price8").innerHTML = total;
+				document.getElementById("pp8").innerHTML ="₹ 4.00 per pad ";
+			}
+			else if(q<500000)
+			{
+				total=2.30*q;
+				document.getElementById("price8").innerHTML = total;
+				document.getElementById("pp8").innerHTML ="₹ 4.00 per pad ";
+			}
+			else
+			{
+				total=2.25*q;
+				document.getElementById("price8").innerHTML = total;
+				document.getElementById("pp8").innerHTML ="₹ 4.00 per pad ";
+			}
+		}
+		function FF08()
+		{
+			var q=parseInt(document.getElementById("amt9").value);
+			var total=0;
+			if(q<1000)
+			{
+				total=4*q;
+				document.getElementById("price9").innerHTML = total;
+				document.getElementById("pp9").innerHTML ="₹ 4.00 per pad ";
+			}
+			else if(q<100000)
+			{
+				total=2.65*q;
+				document.getElementById("price9").innerHTML = total;
+				document.getElementById("pp9").innerHTML ="₹ 2.65 per pad ";
+			}
+			else if(q<500000)
+			{
+				total=2.60*q;
+				document.getElementById("price9").innerHTML = total;
+				document.getElementById("pp9").innerHTML ="₹ 2.60 per pad ";
+			}
+			else
+			{
+				total=2.55*q;
+				document.getElementById("price9").innerHTML = total;
+				document.getElementById("pp9").innerHTML ="₹ 2.55 per pad ";
+			}
+		}
+		function FAI08()
+		{
+			var q=parseInt(document.getElementById("amt10").value);
+			var total=0;
+			if(q<1000)
+			{
+				total=5*q;
+				document.getElementById("price10").innerHTML = total;
+				document.getElementById("pp10").innerHTML ="₹ 5.00 per pad ";
+			}
+			else if(q<100000)
+			{
+				total=3.60*q;
+				document.getElementById("price10").innerHTML = total;
+				document.getElementById("pp10").innerHTML ="₹ 3.60 per pad ";
+			}
+			else if(q<500000)
+			{
+				total=3.55*q;
+				document.getElementById("price10").innerHTML = total;
+				document.getElementById("pp10").innerHTML ="₹ 3.55 per pad ";
+			}
+			else
+			{
+				total=3.50*q;
+				document.getElementById("price10").innerHTML = total;
+				document.getElementById("pp10").innerHTML ="₹ 3.50 per pad ";
+			}
+		}
+		function SF09()
+		{
+			var q=parseInt(document.getElementById("amt11").value);
+			var total=0;
+			if(q<1000)
+			{
+				total=4*q;
+				document.getElementById("price11").innerHTML = total;
+				document.getElementById("pp11").innerHTML ="₹ 4.00 per pad ";
+			}
+			else if(q<100000)
+			{
+				total=1.90*q;
+				document.getElementById("price11").innerHTML = total;
+				document.getElementById("pp11").innerHTML ="₹ 1.90 per pad ";
+			}
+			else if(q<500000)
+			{
+				total=1.85*q;
+				document.getElementById("price11").innerHTML = total;
+				document.getElementById("pp11").innerHTML ="₹ 1.85 per pad ";
+			}
+			else
+			{
+				total=1.80*q;
+				document.getElementById("price11").innerHTML = total;
+				document.getElementById("pp11").innerHTML ="₹ 1.80 per pad ";
+			}
+		}
+		function SA10()
+		{
+			var q=parseInt(document.getElementById("amt12").value);
+			var total=0;
+			if(q<1000)
+			{
+				total=4*q;
+				document.getElementById("price12").innerHTML = total;
+				document.getElementById("pp12").innerHTML ="₹ 4.00 per pad ";
+			}
+			else if(q<100000)
+			{
+				total=2.40*q;
+				document.getElementById("price12").innerHTML = total;
+				document.getElementById("pp12").innerHTML ="₹ 2.40 per pad ";
+			}
+			else if(q<500000)
+			{
+				total=2.35*q;
+				document.getElementById("price12").innerHTML = total;
+				document.getElementById("pp12").innerHTML ="₹ 2.35 per pad ";
+			} 
+			else
+			{
+				total=2.30*q;
+				document.getElementById("price12").innerHTML = total;
+				document.getElementById("pp12").innerHTML ="₹ 2.30 per pad ";
+			}
+		}
+		function SDF11()
+		{
+			var q=parseInt(document.getElementById("amt13").value);
+			var total=0;
+			if(q<1000)
+			{
+				total=4*q;
+				document.getElementById("price13").innerHTML = total;
+				document.getElementById("pp13").innerHTML ="₹ 4.00 per pad ";
+			}
+			else if(q<100000)
+			{
+				total=2.00*q;
+				document.getElementById("price13").innerHTML = total;
+				document.getElementById("pp13").innerHTML ="₹ 2.00 per pad ";
+			}
+			else if(q<500000)
+			{
+				total=1.95*q;
+				document.getElementById("price13").innerHTML = total;
+				document.getElementById("pp13").innerHTML ="₹ 1.95 per pad ";
+			}
+			else
+			{
+				total=1.90*q;
+				document.getElementById("price13").innerHTML = total;
+				document.getElementById("pp13").innerHTML ="₹ 1.90 per pad ";
+			}
+		}
+		function FDF12()
+		{
+			var q=parseInt(document.getElementById("amt14").value);
+			var total=0;
+			if(q<1000)
+			{
+				total=4*q;
+				document.getElementById("price14").innerHTML = total;
+				document.getElementById("pp14").innerHTML ="₹ 4.00 per pad ";
+			}
+			else if(q<100000)
+			{
+				total=2.50*q;
+				document.getElementById("price14").innerHTML = total;
+				document.getElementById("pp14").innerHTML ="₹ 2.50 per pad ";
+			}
+			else if(q<500000)
+			{
+				total=2.45*q;
+				document.getElementById("price14").innerHTML = total;
+				document.getElementById("pp14").innerHTML ="₹ 2.45 per pad ";
+			}
+			else
+			{
+				total=2.40*q;
+				document.getElementById("price14").innerHTML = total;
+				document.getElementById("pp14").innerHTML ="₹ 2.40 per pad ";
+			}
+		}
+		function FF013()
+		{
+			var q=parseInt(document.getElementById("amt15").value);
+			var total=0;
+			if(q<1000)
+			{
+				total=5*q;
+				document.getElementById("price15").innerHTML = total;
+				document.getElementById("pp15").innerHTML ="₹ 4.00 per pad ";
+			}
+			else if(q<100000)
+			{
+				total=2.70*q;
+				document.getElementById("price15").innerHTML = total;
+				document.getElementById("pp15").innerHTML ="₹ 2.70 per pad ";
+			}
+			else if(q<500000)
+			{
+				total=2.65*q;
+				document.getElementById("price15").innerHTML = total;
+				document.getElementById("pp15").innerHTML ="₹ 2.65 per pad ";
+			}
+			else
+			{
+				total=2.60*q;
+				document.getElementById("price15").innerHTML = total;
+				document.getElementById("pp15").innerHTML ="₹ 2.60 per pad ";
+			}
+		}
+		function FA014()
+		{
+			var q=parseInt(document.getElementById("amt16").value);
+			var total=0;
+			if(q<1000)
+			{
+				total=5*q;
+				document.getElementById("price16").innerHTML = total;
+				document.getElementById("pp16").innerHTML ="₹ 5.00 per pad ";
+			}
+			else if(q<100000)
+			{
+				total=3.20*q;
+				document.getElementById("price16").innerHTML = total;
+				document.getElementById("pp16").innerHTML ="₹ 3.20 per pad ";
+			}
+			else if(q<500000)
+			{
+				total=3.15*q;
+				document.getElementById("price16").innerHTML = total;
+				document.getElementById("pp16").innerHTML ="₹ 3.15 per pad ";
+			}
+			else
+			{
+				total=3.10*q;
+				document.getElementById("price16").innerHTML = total;
+				document.getElementById("pp16").innerHTML ="₹ 3.10 per pad ";
+			}
+		}
+		function FAI014()
+		{
+			var q=parseInt(document.getElementById("amt17").value);
+			var total=0;
+			if(q<1000)
+			{
+				total=5*q;
+				document.getElementById("price17").innerHTML = total;
+				document.getElementById("pp17").innerHTML ="₹ 5.00 per pad ";
+			}
+			else if(q<100000)
+			{
+				total=4.60*q;
+				document.getElementById("price17").innerHTML = total;
+				document.getElementById("pp17").innerHTML ="₹ 4.60 per pad ";
+			}
+			else if(q<500000)
+			{
+				total=4.55*q;
+				document.getElementById("price17").innerHTML = total;
+				document.getElementById("pp17").innerHTML ="₹ 4.55 per pad ";
+			}
+			else
+			{
+				total=4.50*q;
+				document.getElementById("price17").innerHTML = total;
+				document.getElementById("pp17").innerHTML ="₹ 4.50 per pad ";
+			}
+		}
+		function FDF0_18()
+		{
+			var q=parseInt(document.getElementById("amt18").value);
+			var total=0;
+			if(q<1000)
+			{
+				total=5*q;
+				document.getElementById("price18").innerHTML = total;
+				document.getElementById("pp18").innerHTML ="₹ 5.00 per pad ";
+			}
+			else if(q<100000)
+			{
+				total=2.75*q;
+				document.getElementById("price18").innerHTML = total;
+				document.getElementById("pp18").innerHTML ="₹ 2.75 per pad ";
+			}
+			else if(q<500000)
+			{
+				total=2.70*q;
+				document.getElementById("price18").innerHTML = total;
+				document.getElementById("pp18").innerHTML ="₹ 2.70 per pad ";
+			}
+			else
+			{
+				total=2.65*q;
+				document.getElementById("price18").innerHTML = total;
+				document.getElementById("pp18").innerHTML ="₹ 2.65 per pad ";
+			}
+		}
+		
+	</script>
+</head>
+<body>
+<div class="title">
+<h2>Loose Rate Chart</h2>
+
+<p>Rate is valid *subject to change without prior notice due to fluctuation in dollar price and raw material rate.</p>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>P. Code</th>
+            <th>SPECIFICATIONS</th>
+            <th>ABOUT THICKNESS</th>
+            <th>Quality</th>
+            <th>Enter Quantity</th>
+			<th>Your Total</th>
+			<th> ₹ / pad</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>FF01</td>
+            <td>240mm fold Cottony</td>
+            <td>maxi/regular/Cottony</td>
+            <td>Cottony (Absorption 40ML)</td>
+            
+            <td><input type="text" id="amt1" name="p1" placeholder="Enter Quantity"><br><button onclick="FF01()">calculate</button></td>
+			<td><h3>Total =  ₹ <span id="price1"></span></h3></td>
+			<td ><h3 id="pp1">NaN</h3></td>
+		</tr>
+        <tr>
+            <td>FA02</td>
+            <td>240mm fold with ultra/SAP paper</td>
+            <td>Ultra/Slim</td>
+            <td>SAP Paper (Absorption 50ML+)</td>
+            
+            <td><input type="text" id="amt2" name="p1" placeholder="Enter Quantity"><br><button onclick="FA02()">calculate</button></td>
+			<td><h3>Total =  ₹ <span id="price2"></span></h3></td>
+			<td ><h3 id="pp2">NaN</h3></td>
+		</tr>
+        <tr>
+            <td>FAI02</td>
+            <td>240mm straight fluffy</td>
+            <td>With Anion (Imported)</td>
+            <td>SAP Paper (Absorption 100ML+)</td>
+           
+            <td><input type="text" id="amt3" name="p1" placeholder="Enter Quantity"><br><button onclick="FAI02()">calculate</button></td>
+			<td><h3>Total =  ₹ <span id="price3"></span></h3></td>
+			<td ><h3 id="pp3">NaN</h3></td>	
+		</tr>
+        <tr>
+            <td>SA02</td>
+            <td>240mm fold Cottony</td>
+            <td>maxi/Cottony</td>
+            <td>Cottony (40ML)</td>
+           
+            <td><input type="text" id="amt4" name="p1" placeholder="Enter Quantity"><br><button onclick="SA02()">calculate</button></td>
+			<td><h3>Total =  ₹ <span id="price4"></span></h3></td>
+			<td ><h3 id="pp4">NaN</h3></td>
+		</tr>
+        <tr>
+            <td>SA04</td>
+            <td>240mm straight with ultra/SAP paper</td>
+            <td>Ultra/Slim</td>
+            <td>SAP Paper (Absorption 50ML+)</td>
+           <td><input type="text" id="amt5" name="p1" placeholder="Enter Quantity"><br><button onclick="SA04()">calculate</button></td>
+			<td><h3>Total =  ₹ <span id="price5"></span></h3></td>
+			<td ><h3 id="pp5">NaN</h3></td>
+		</tr>
+        <tr>
+            <td>SDF05</td>
+            <td>240mm dry net straight</td>
+            <td>maxi/Cottony</td>
+            <td>Cottony (Absorption 40ML)</td>
+			<td><input type="text" id="amt6" name="p1" placeholder="Enter Quantity"><br><button onclick="SDF05()">calculate</button></td>
+			<td><h3>Total =  ₹ <span id="price6"></span></h3></td>
+			<td ><h3 id="pp6">NaN</h3></td>
+		</tr>
+        <tr>
+            <td>FDF06</td>
+            <td>240mm dry net fold</td>
+            <td>maxi/Cottony</td>
+            <td>Cottony (Absorption 40ML)</td>
+            <td><input type="text" id="amt7" name="p1" placeholder="Enter Quantity"><br><button onclick="FDF06()">calculate</button></td>
+			<td><h3>Total =  ₹ <span id="price7"></span></h3></td>
+			<td ><h3 id="pp7">NaN</h3></td>
+		</tr>
+        <tr>
+            <td>FF07</td>
+            <td>280mm fold Cottony</td>
+            <td>maxi/Cottony</td>
+            <td>Cottony (Absorption 50ML)</td>
+          
+            <td><input type="text" id="amt8" name="p1" placeholder="Enter Quantity"><br><button onclick="FF07()">calculate</button></td>
+			<td><h3>Total =  ₹ <span id="price8"></span></h3></td>
+			<td ><h3 id="pp8">NaN</h3></td>
+		</tr>
+        <tr>
+            <td>FA08</td>
+            <td>280mm fold with ultra/SAP paper</td>
+            <td>Ultra/Slim</td>
+            <td>SAP Paper (Absorption 80ML)</td>
+           
+            <td><input type="text" id="amt9" name="p1" placeholder="Enter Quantity"><br><button onclick="FA08()">calculate</button></td>
+			<td><h3>Total =  ₹ <span id="price9"></span></h3></td>
+			<td ><h3 id="pp9">NaN</h3></td>
+		</tr>
+        <tr>
+            <td>FAI08</td>
+            <td>280mm fold with ultra/SAP paper</td>
+            <td>With Anion (Imported)</td>
+            <td>SAP Paper (Absorption 150ML)</td>
+            <td><input type="text" id="amt10" name="p1" placeholder="Enter Quantity"><br><button onclick="FAI08()">calculate</button></td>
+			<td><h3>Total =  ₹ <span id="price10"></span></h3></td>
+			<td ><h3 id="pp10">NaN</h3></td>
+		</tr>
+        <tr>
+            <td>SF09</td>
+            <td>280mm straight Cottony</td>
+            <td>maxi/Cottony</td>
+            <td>Cottony (Absorption 50ML)</td>
+            <td><input type="text" id="amt11" name="p1" placeholder="Enter Quantity"><br><button onclick="SF09()">calculate</button></td>
+			<td><h3>Total =  ₹ <span id="price11"></span></h3></td>
+			<td ><h3 id="pp11">NaN</h3></td>
+		</tr>
+        <tr>
+            <td>SA10</td>
+            <td>280mm with ultra/SAP paper</td>
+            <td>Ultra/Slim</td>
+            <td>SAP Paper (Absorption 50ML)</td>
+           <td><input type="text" id="amt12" name="p1" placeholder="Enter Quantity"><br><button onclick="SA10()">calculate</button></td>
+			<td><h3>Total =  ₹ <span id="price12"></span></h3></td>
+			<td ><h3 id="pp12">NaN</h3></td>
+		</tr>
+        <tr>
+            <td>SDF11</td>
+            <td>280mm dry net straight</td>
+            <td>maxi/Cottony</td>
+            <td>Cottony (Absorption 50ML)</td>
+          <td><input type="text" id="amt13" name="p1" placeholder="Enter Quantity"><br><button onclick="SDF11()">calculate</button></td>
+			<td><h3>Total =  ₹ <span id="price13"></span></h3></td>
+			<td ><h3 id="pp13">NaN</h3></td>
+		</tr>
+        <tr>
+            <td>FDF12</td>
+            <td>280mm dry net fold</td>
+            <td>maxi/Cottony</td>
+            <td>Cottony (Absorption 50ML)</td>
+         <td><input type="text" id="amt14" name="p1" placeholder="Enter Quantity"><br><button onclick="FDF12()">calculate</button></td>
+			<td><h3>Total =  ₹ <span id="price14"></span></h3></td>
+			<td ><h3 id="pp14">NaN</h3></td>
+		</tr>
+        <tr>
+            <td>FF013</td>
+            <td>320mm fold</td>
+            <td>maxi/Cottony</td>
+            <td>Cottony (Absorption 50ML)</td>
+          <td><input type="text" id="amt15" name="p1" placeholder="Enter Quantity"><br><button onclick="FF013()">calculate</button></td>
+			<td><h3>Total =  ₹ <span id="price15"></span></h3></td>
+			<td ><h3 id="pp15">NaN</h3></td>
+		</tr>
+        <tr>
+            <td>FA014</td>
+            <td>320mm fold ultra/SAP paper</td>
+            <td>Ultra/Thin/Slim</td>
+            <td>SAP Paper (Absorption 80ML)</td>
+          <td><input type="text" id="amt16" name="p1" placeholder="Enter Quantity"><br><button onclick="FA014()">calculate</button></td>
+			<td><h3>Total =  ₹ <span id="price16"></span></h3></td>
+			<td ><h3 id="pp16">NaN</h3></td>
+		</tr>
+        <tr>
+            <td>FAI014</td>
+            <td>320mm fold ultra/SAP paper</td>
+            <td>With Anion (Imported)</td>
+            <td>SAP Paper (Absorption 150ML)</td>
+          <td><input type="text" id="amt17" name="p1" placeholder="Enter Quantity"><br><button onclick="FAI014()">calculate</button></td>
+			<td><h3>Total =  ₹ <span id="price17"></span></h3></td>
+			<td ><h3 id="pp17">NaN</h3></td>
+		</tr>
+        <tr>
+            <td>FDF018</td>
+            <td>320mm dry net fold</td>
+            <td>maxi/Cottony</td>
+            <td>Cottony (Absorption 50ML)</td>
+           <td><input type="text" id="amt18" name="p1" placeholder="Enter Quantity"><br><button onclick="FDF0_18()">calculate</button></td>
+			<td><h3>Total =  ₹ <span id="price18"></span></h3></td>
+			<td ><h3 id="pp18">NaN</h3></td>
+		</tr>
+    </tbody>
+</table>
+
+</body>
+</html>
